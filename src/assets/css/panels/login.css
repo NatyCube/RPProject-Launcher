@@ -3,15 +3,36 @@
     align-items: center;
     justify-content: center;
     height: 100%;
+    flex-wrap: wrap; /* Permet le retour à la ligne sur petits écrans */
+    gap: 20px; /* Espacement entre les blocs */
+    padding: 20px;
 }
 
 .login-tabs {
-    position: absolute;
+    position: relative;
     padding: 15px;
     background: var(--background);
     border-radius: 15px;
     text-align: center;
-    min-width: 40%;
+    min-width: 300px; /* Largeur minimale pour les petits écrans */
+    max-width: 45%; /* Évite que les blocs prennent trop de place */
+    flex-grow: 1; /* Permet aux blocs de s'étirer également si besoin */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Ajoute une ombre pour un effet esthétique */
+    transition: transform 0.3s;
+}
+
+.login-tabs:hover {
+    transform: translateY(-5px); /* Légère élévation au survol */
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Les blocs s'empilent sur petits écrans */
+    }
+
+    .login-tabs {
+        max-width: 90%; /* Ajuste la largeur pour les petits écrans */
+    }
 }
 
 .login-home,
